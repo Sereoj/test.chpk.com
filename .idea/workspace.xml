@@ -1,7 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="615c1243-0f92-4b43-9491-ccd81203c328" name="Default Changelist" comment="" />
+    <list default="true" id="615c1243-0f92-4b43-9491-ccd81203c328" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/4-kurs-fd2aqkdk.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Project.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/XLSXReader.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/test.chpk.com.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/test.chpk.com.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/groups.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/schedule.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/unsetter.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/validator.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/week.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/inc.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/autoload.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/InstalledVersions.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_real.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/platform_check.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/kub-at/php-simple-html-dom-parser/CONTRIBUTING.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/kub-at/php-simple-html-dom-parser/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/kub-at/php-simple-html-dom-parser/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/kub-at/php-simple-html-dom-parser/composer.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/kub-at/php-simple-html-dom-parser/src/KubAT/PhpSimple/HtmlDomParser.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/kub-at/php-simple-html-dom-parser/src/KubAT/PhpSimple/lib/simple_html_dom.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/shuchkin/simplexlsx/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/shuchkin/simplexlsx/composer.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/shuchkin/simplexlsx/examples/01-basic_usage.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/shuchkin/simplexlsx/examples/02-rows_and_rowsEx.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/shuchkin/simplexlsx/examples/03-sheets.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/shuchkin/simplexlsx/examples/04-upload_and_convert_to_html.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/shuchkin/simplexlsx/examples/05-rows_with_header_values_as_keys.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/shuchkin/simplexlsx/examples/books.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/shuchkin/simplexlsx/examples/countries_and_population.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/shuchkin/simplexlsx/license.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/shuchkin/simplexlsx/src/SimpleXLSX.php" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -11,14 +61,29 @@
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
-      <path value="$PROJECT_DIR$/vendor/shuchkin/simplexlsx" />
       <path value="$PROJECT_DIR$/vendor/kub-at/php-simple-html-dom-parser" />
       <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-client" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-factory" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/vendor/myclabs/php-enum" />
+      <path value="$PROJECT_DIR$/vendor/psr/simple-cache" />
+      <path value="$PROJECT_DIR$/vendor/ezyang/htmlpurifier" />
+      <path value="$PROJECT_DIR$/vendor/phpoffice/phpspreadsheet" />
+      <path value="$PROJECT_DIR$/vendor/maennchen/zipstream-php" />
+      <path value="$PROJECT_DIR$/vendor/markbaker/complex" />
+      <path value="$PROJECT_DIR$/vendor/markbaker/matrix" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/shuchkin/simplexlsx" />
     </include_path>
   </component>
   <component name="ProjectId" id="1qFXJWN1Sr3pg0KES2YeeUM2rDL" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -39,16 +104,52 @@
       <updated>1616676239776</updated>
       <workItem from="1616676240822" duration="11969000" />
       <workItem from="1616690396147" duration="3118000" />
+      <workItem from="1616774230880" duration="1112000" />
+      <workItem from="1632853952312" duration="3029000" />
+      <workItem from="1632910847641" duration="793000" />
+      <workItem from="1632936416726" duration="1276000" />
+      <workItem from="1634387993928" duration="21460000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="WindowStateProjectService">
-    <state x="745" y="269" key="NewPhpClassDialog" timestamp="1616690736650">
+    <state x="586" y="203" key="#Inspections" timestamp="1632856748192">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="745" y="269" key="NewPhpClassDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1616690736650" />
+    <state x="586" y="203" key="#Inspections/0.0.1920.1050@0.0.1920.1050" timestamp="1632856748192" />
+    <state x="667" y="167" key="#PHP" timestamp="1634408250923">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="667" y="167" key="#PHP/0.0.1920.1050@0.0.1920.1050" timestamp="1634408250923" />
+    <state x="740" y="279" key="FileChooserDialogImpl" timestamp="1632938096357">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="740" y="279" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1632938096357" />
+    <state x="766" y="247" key="NewPhpClassDialog" timestamp="1634397123586">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="766" y="247" key="NewPhpClassDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1634397123586" />
+    <state x="794" y="448" key="NewPhpFileDialog" timestamp="1634392436367">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="794" y="448" key="NewPhpFileDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1634392436367" />
+    <state x="616" y="243" key="run.anything.popup" timestamp="1634389034981">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="616" y="243" key="run.anything.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1634389034981" />
   </component>
 </project>
