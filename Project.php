@@ -1,20 +1,32 @@
 <?php
+
+/**
+ * Class Project
+ * by World 2 Me RU
+ */
 class Project
 {
     public static $rows = []; // clear rows
 
+    // rows => col => id
     private static $weeks_id;
     private static $days_id;
     private static $times_id;
     private static $groups_id;
     private static $subgroups_id;
+
+    //navigation helpers
     private static $headers = ['Расписание','День недели', 'Время','Группа:', 'Подгруппа:'];
 
+    // array => ['col','row','text']
     private static $weeks;
     private static $days;
     private static $times;
     private static $groups;
     private static $subgroups;
+
+    // result;
+    private static $object;
 
     /**
      * Удаление стоп слов.
@@ -52,7 +64,11 @@ class Project
             foreach ($item as $key => $text) {
                 if(self::$weeks_id == $key && strpos($text, self::$headers[0]) !== false)
                 {
-                    self::$weeks[$index][$key] = $text;
+                    self::$weeks = [
+                        'row' => $index,
+                        'col' => $key,
+                        'text' => $text
+                    ];
                 }
                 if(self::$days_id == $key && !in_array($text, self::$headers))
                 {
@@ -63,12 +79,20 @@ class Project
                     }else
                     {
                         if($text != null)
-                        self::$days[$index][$key] = $text;
+                        self::$days[] = [
+                            'row' => $index,
+                            'col' => $key,
+                            'text' => $text
+                        ];
                     }
                 }
                 if(self::$times_id == $key && !in_array($text, self::$headers))
                 {
-                    self::$times[$index][$key] = $text;
+                    self::$times[] = [
+                        'row' => $index,
+                        'col' => $key,
+                        'text' => $text
+                    ];
                 }
                 //Text:Группа:, Row:8, Col:3, Text:Подгруппа:, Row:9, Col: 3
                 //Text:Группа:, Row:97, Col: 3, Text:Подгруппа:, Row:98, Col: 3
@@ -103,15 +127,6 @@ class Project
             }
         }
     }
-
-    /**
-     * Получение чистого rows без стоп-слов.
-     * @return mixed
-     */
-    public static function getRows()
-    {
-        return self::$rows;
-    }
     /**
      * Получение ID columns
      * @param $rows
@@ -140,6 +155,44 @@ class Project
     }
 
     /**
+     * @param $nameOrId
+     * @return mixed|null
+     */
+    public static function GetValuesFromGroup($nameOrId = '')
+    {
+        if($nameOrId == "")
+        {
+            $nameOrId = current(self::getGroups())['text'];
+        }
+
+        $nameOrId = strtoupper($nameOrId); // ис-1-18 => ИС-1-18
+        if(!is_numeric($nameOrId)){
+            if(self::getGroups() != null)
+            {
+                $arr = [];
+                foreach (self::getGroups() as $item)
+                {
+                    if($item['text'] == $nameOrId)
+                    {
+                        $data = self::getRows();
+                        foreach ($data as $index => $rows)
+                        {
+                            foreach ($rows as $key => $text)
+                            {
+                                //echo $text;
+                                //if($item['row'] == $key || $item['row'] == $key + 1)
+                                //echo $data[$index][$key]. "-". $data[$index][$key + 1]."\n";
+                            }
+                        }
+                    }
+                }
+                //return self::getRows();
+            }
+            return null;
+        }
+    }
+
+    /**
      * Открытие файла и удаление стоп слов и установка id
      * @param $path
      * @return false|true
@@ -155,5 +208,58 @@ class Project
             }
         }
         return false;
+    }
+
+    /**
+     * Получение чистого rows без стоп-слов.
+     * @return mixed
+     */
+    public static function getRows()
+    {
+        return self::$rows;
+    }
+
+    /**
+     * Получение недели
+     * @return mixed
+     */
+    public static function getWeeks()
+    {
+        return self::$weeks;
+    }
+    /**
+     * Получение дней недели
+     * @return mixed
+     */
+    public static function getDays()
+    {
+        return self::$days;
+    }
+
+    /**
+     * Получение времени
+     * @return mixed
+     */
+    public static function getTimes()
+    {
+        return self::$times;
+    }
+
+    /**
+     * Получение групп
+     * @return mixed
+     */
+    public static function getGroups()
+    {
+        return self::$groups;
+    }
+
+    /**
+     * Получение подгрупп
+     * @return mixed
+     */
+    public static function getSubgroups()
+    {
+        return self::$subgroups;
     }
 }

@@ -1,56 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="615c1243-0f92-4b43-9491-ccd81203c328" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/4-kurs-fd2aqkdk.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Project.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/XLSXReader.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/test.chpk.com.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/test.chpk.com.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/groups.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/schedule.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/unsetter.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/validator.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/week.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/inc.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project.php" beforeDir="false" afterPath="$PROJECT_DIR$/Project.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/autoload.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/InstalledVersions.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_real.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/platform_check.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/kub-at/php-simple-html-dom-parser/CONTRIBUTING.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/kub-at/php-simple-html-dom-parser/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/kub-at/php-simple-html-dom-parser/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/kub-at/php-simple-html-dom-parser/composer.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/kub-at/php-simple-html-dom-parser/src/KubAT/PhpSimple/HtmlDomParser.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/kub-at/php-simple-html-dom-parser/src/KubAT/PhpSimple/lib/simple_html_dom.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/shuchkin/simplexlsx/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/shuchkin/simplexlsx/composer.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/shuchkin/simplexlsx/examples/01-basic_usage.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/shuchkin/simplexlsx/examples/02-rows_and_rowsEx.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/shuchkin/simplexlsx/examples/03-sheets.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/shuchkin/simplexlsx/examples/04-upload_and_convert_to_html.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/shuchkin/simplexlsx/examples/05-rows_with_header_values_as_keys.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/shuchkin/simplexlsx/examples/books.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/shuchkin/simplexlsx/examples/countries_and_population.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/shuchkin/simplexlsx/license.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/shuchkin/simplexlsx/src/SimpleXLSX.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,8 +80,26 @@
       <workItem from="1632853952312" duration="3029000" />
       <workItem from="1632910847641" duration="793000" />
       <workItem from="1632936416726" duration="1276000" />
-      <workItem from="1634387993928" duration="21460000" />
+      <workItem from="1634387993928" duration="22413000" />
+      <workItem from="1634459091156" duration="717000" />
+      <workItem from="1634464626428" duration="2051000" />
+      <workItem from="1634475530778" duration="4272000" />
     </task>
+    <task id="LOCAL-00001" summary="hello ...">
+      <created>1634410222459</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1634410222459</updated>
+    </task>
+    <task id="LOCAL-00002" summary="new =)">
+      <created>1634410238583</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1634410238583</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -125,6 +115,12 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="hello ..." />
+    <MESSAGE value="new =)" />
+    <option name="LAST_COMMIT_MESSAGE" value="new =)" />
   </component>
   <component name="WindowStateProjectService">
     <state x="586" y="203" key="#Inspections" timestamp="1632856748192">
