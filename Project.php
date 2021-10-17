@@ -8,6 +8,7 @@ class Project
 {
     public static $rows = []; // clear rows
 
+    // !!!system!!!
     // rows => col => id
     private static $weeks_id;
     private static $days_id;
@@ -24,6 +25,8 @@ class Project
     private static $times;
     private static $groups;
     private static $subgroups;
+
+    private static $offset = 2;
 
     // result;
     private static $object;
@@ -58,27 +61,30 @@ class Project
         return false;
     }
 
+    /**
+     * Очистка массивов, чтобы избавиться от повторов.
+     */
+    private static function clear_ids()
+    {
+        self::$weeks_id = null;
+        self::$days_id = null;
+        self::$times_id = null;
+        self::$groups_id = null;
+        self::$subgroups_id = null;
+    }
+
+
     public static function SetValuesFromIds($rows)
     {
         foreach( $rows as $index => $item) {
             foreach ($item as $key => $text) {
-                if(self::$weeks_id == $key && strpos($text, self::$headers[0]) !== false)
+
+                //Set days
+                if(self::$days_id[0]['col'] == $key && $index > self::$days_id[0]['row'])
                 {
-                    self::$weeks = [
-                        'row' => $index,
-                        'col' => $key,
-                        'text' => $text
-                    ];
-                }
-                if(self::$days_id == $key && !in_array($text, self::$headers))
-                {
-                    //костыль, тут надо как-то получить $weeks_id[index] сразу 2's items
-                    if($index == 5 || $index == 94)
+                    if($text != null && !in_array($text, self::$headers) && self::$weeks_id[1]['row'] != $index)
                     {
-                        continue;
-                    }else
-                    {
-                        if($text != null)
+                        //echo "Text:$text, Row:$index, Col: $key\n";
                         self::$days[] = [
                             'row' => $index,
                             'col' => $key,
@@ -86,42 +92,53 @@ class Project
                         ];
                     }
                 }
-                if(self::$times_id == $key && !in_array($text, self::$headers))
-                {
-                    self::$times[] = [
-                        'row' => $index,
-                        'col' => $key,
-                        'text' => $text
-                    ];
-                }
-                //Text:Группа:, Row:8, Col:3, Text:Подгруппа:, Row:9, Col: 3
-                //Text:Группа:, Row:97, Col: 3, Text:Подгруппа:, Row:98, Col: 3
-                //echo "Text:$text, Row:$index, Col: $key";
 
-                if(self::$groups_id == $key && ($index == 8 || $index == 97))
+                //Set Times
+                if(self::$times_id[0]['col'] == $key && $index > self::$subgroups_id[0]['row'])
                 {
-                    for ($i = self::$groups_id + 2; $i <= count($rows[8]) - 1; $i++)
+                    if($text != null && !in_array($text, self::$headers))
                     {
-                        if($rows[8][$i] == null || $rows[8][$i] == "")
-                            continue;
-                        self::$groups[] = [
+                        self::$times[] = [
                             'row' => $index,
-                            'col' => $i,
-                            'text' => $rows[8][$i]
+                            'col' => $key,
+                            'text' => $text
                         ];
                     }
                 }
-                if (self::$subgroups_id == $key && ($index == 9 || $index == 98))
+
+                //echo "Text:$text, Row:$index, Col: $key\n";
+
+                //Set Groups
+                if(self::$groups_id[0]['row'] == $key && (self::$groups_id[0]['row'] == $index || self::$groups_id[1]['row'] == $index))
                 {
-                    for ($i = self::$subgroups_id + 2; $i <= count($rows[9]) - 1; $i++)
+                    for ($i = self::$groups_id[0]['col'] + self::$offset; $i <= count($rows[8]) - 1; $i++)
                     {
-                        if($rows[9][$i] == null || $rows[9][$i] == "")
-                            continue;
-                        self::$subgroups[] = [
-                            'row' => $index,
-                            'col' => $i,
-                            'text' => $rows[9][$i]
-                        ];
+                        if($rows[8][$i] != null)
+                        {
+                            $texts = $rows[8][$i];
+                            self::$groups[] = [
+                                'row' => $index,
+                                'col' => $i,
+                                'text' => $texts
+                            ];
+                        }
+                    }
+                }
+
+                //Set Subgroups
+                if (self::$subgroups_id[0]['col'] == $key && (self::$subgroups_id[0]['row'] == $index || self::$subgroups_id[1]['row'] == $index))
+                {
+                    for ($i = self::$subgroups_id['0']['col'] + self::$offset; $i <= count($rows[9]) - 1; $i ++)
+                    {
+                        if($rows[9][$i] != null || $rows[9][$i] != "")
+                        {
+                            $texts = $rows[9][$i];
+                            self::$subgroups[] = [
+                                'row' => $index,
+                                'col' => $i,
+                                'text' => $texts
+                            ];
+                        }
                     }
                 }
             }
@@ -134,13 +151,35 @@ class Project
      */
     public static function GetIds($rows)
     {
+        self::clear_ids();
+
         if(is_array($rows)) {
             foreach( $rows as $index => $item) foreach ($item as $key => $text) {
-                if (strpos($text, self::$headers[0]) !== false) self::$weeks_id = $key;
-                if (strpos($text, self::$headers[1]) !== false) self::$days_id = $key;
-                if (strpos($text, self::$headers[2]) !== false) self::$times_id = $key;
-                if (strpos($text, self::$headers[3]) !== false) self::$groups_id = $key;
-                if (strpos($text, self::$headers[4]) !== false) self::$subgroups_id = $key;
+                if (strpos($text, self::$headers[0]) !== false) self::$weeks_id[] = [
+                    'row' => $index,
+                    'col' => $key,
+                    'text' => $text
+                ];
+                if (strpos($text, self::$headers[1]) !== false) self::$days_id[] = [
+                    'row' => $index,
+                    'col' => $key,
+                    'text' => $text
+                ];
+                if (strpos($text, self::$headers[2]) !== false) self::$times_id[] = [
+                    'row' => $index,
+                    'col' => $key,
+                    'text' => $text
+                ];
+                if (strpos($text, self::$headers[3]) !== false) self::$groups_id[]= [
+                    'row' => $index,
+                    'col' => $key,
+                    'text' => $text
+                ];
+                if (strpos($text, self::$headers[4]) !== false) self::$subgroups_id[]= [
+                    'row' => $index,
+                    'col' => $key,
+                    'text' => $text
+                ];
             }
 
             return [
@@ -179,14 +218,13 @@ class Project
                         {
                             foreach ($rows as $key => $text)
                             {
-                                //echo $text;
-                                //if($item['row'] == $key || $item['row'] == $key + 1)
-                                //echo $data[$index][$key]. "-". $data[$index][$key + 1]."\n";
+                                echo $text;
+                                if($item['row'] == $key || $item['row'] == $key + 1)
+                                    echo $data[$index][$key]. "-". $data[$index][$key + 1]."\n";
                             }
                         }
                     }
                 }
-                //return self::getRows();
             }
             return null;
         }
