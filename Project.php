@@ -73,7 +73,114 @@ class Project
         self::$subgroups_id = null;
     }
 
+    /**
+     * @param string $name
+     * @param $groups
+     * @param $subgroups
+     * @return array
+     * Получение одной группы и подгрупп
+     */
+    public static function FormatOneGroupNSub($name, $groups, $subgroups)
+    {
 
+        if($name == null)
+        {
+            $name = current(self::getGroups())['text']; // текущая группа, по умолчанию первая колонка.
+        }
+
+        $name = strtoupper($name);
+
+        if(is_array($groups) && is_array($subgroups) )
+        {
+            $arr = null;
+            $counter = 0;
+            foreach ($groups as $itemGroup)
+            {
+                foreach ($subgroups as $itemSubgroup)
+                {
+                    if($itemGroup['col'] == $itemSubgroup['col'] && $itemGroup['row'] + 1 == $itemSubgroup['row'])
+                    {
+                        if($itemGroup['text'] == $name)
+                        {
+                            $counter ++;
+                            $arr[$counter]['group'] = $itemGroup;
+                            $arr[$counter][1] = $itemSubgroup;
+                        }
+                    }else if($itemGroup['col'] + 2 == $itemSubgroup['col'] && $itemGroup['row'] + 1 == $itemSubgroup['row'])
+                    {
+                        if($itemGroup['text'] == $name)
+                        {
+                            $arr[$counter][2] = $itemSubgroup;
+                        }
+                    }
+                }
+            }
+            return $arr;
+        }
+    }
+
+    /**
+     * @param $groups
+     * @param $subgroups
+     * @return array
+     * Получение всех групп и подгрупп
+     */
+    public static function FormatGroupsNSub($groups, $subgroups)
+    {
+        if( is_array($groups) && is_array($subgroups) )
+        {
+            $arr = null;
+            $counter = 0;
+            foreach ($groups as $itemGroup)
+            {
+                foreach ($subgroups as $itemSubgroup)
+                {
+                    if($itemGroup['col'] == $itemSubgroup['col'] && $itemGroup['row'] + 1 == $itemSubgroup['row'])
+                    {
+                        $counter ++;
+                        $arr[$counter]['group'] = $itemGroup;
+                        $arr[$counter][1] = $itemSubgroup;
+                    }else if($itemGroup['col'] + 2 == $itemSubgroup['col'] && $itemGroup['row'] + 1 == $itemSubgroup['row'])
+                    {
+                        $arr[$counter][2] = $itemSubgroup;
+                    }
+                }
+            }
+            return $arr;
+        }
+    }
+
+    /**
+     * Получение всех времени и дней
+     * @param $days
+     * @param $times
+     */
+    public static function FormatDaysNTimes($days, $times)
+    {
+        if(is_array($days) && is_array($times))
+        {
+            $arr = null;
+            $next_day = null;
+            $next_row = null;
+
+            foreach ($days as $index => $item_day)
+            {
+                foreach ($times as $key => $item_times)
+                {
+                    if($index == $key )
+                    {
+                        echo $item_day['text'];
+                    }
+                }
+
+            }
+        }
+    }
+
+    /**
+     * @param $rows
+     * Формирование ОБЯЗАТЕЛЬНЫХ данных
+     */
     public static function SetValuesFromIds($rows)
     {
         foreach( $rows as $index => $item) {
@@ -109,13 +216,14 @@ class Project
                 //echo "Text:$text, Row:$index, Col: $key\n";
 
                 //Set Groups
-                if(self::$groups_id[0]['row'] == $key && (self::$groups_id[0]['row'] == $index || self::$groups_id[1]['row'] == $index))
+                if(self::$groups_id[0]['col'] == $key && (self::$groups_id[0]['row'] == $index || self::$groups_id[1]['row'] == $index))
                 {
-                    for ($i = self::$groups_id[0]['col'] + self::$offset; $i <= count($rows[8]) - 1; $i++)
+                    $row_id = self::$groups_id[0]['row'];
+                    for ($i = self::$groups_id[0]['col'] + self::$offset; $i <= count($rows[$row_id]) - 1; $i++)
                     {
-                        if($rows[8][$i] != null)
+                        if($rows[$row_id][$i] != null)
                         {
-                            $texts = $rows[8][$i];
+                            $texts = $rows[$row_id][$i];
                             self::$groups[] = [
                                 'row' => $index,
                                 'col' => $i,
@@ -128,11 +236,12 @@ class Project
                 //Set Subgroups
                 if (self::$subgroups_id[0]['col'] == $key && (self::$subgroups_id[0]['row'] == $index || self::$subgroups_id[1]['row'] == $index))
                 {
-                    for ($i = self::$subgroups_id['0']['col'] + self::$offset; $i <= count($rows[9]) - 1; $i ++)
+                    $row_id = self::$subgroups_id[0]['row'];
+                    for ($i = self::$subgroups_id[0]['col'] + self::$offset; $i <= count($rows[$row_id]) - 1; $i ++)
                     {
-                        if($rows[9][$i] != null || $rows[9][$i] != "")
+                        if($rows[$row_id][$i] != null || $rows[$row_id][$i] != "")
                         {
-                            $texts = $rows[9][$i];
+                            $texts = $rows[$row_id][$i];
                             self::$subgroups[] = [
                                 'row' => $index,
                                 'col' => $i,
@@ -194,6 +303,8 @@ class Project
     }
 
     /**
+     * TODO: Вывод расписания по группе или Id
+     * NO Working!!!
      * @param $nameOrId
      * @return mixed|null
      */
@@ -218,7 +329,7 @@ class Project
                         {
                             foreach ($rows as $key => $text)
                             {
-                                echo $text;
+                                //echo $text;
                                 if($item['row'] == $key || $item['row'] == $key + 1)
                                     echo $data[$index][$key]. "-". $data[$index][$key + 1]."\n";
                             }
